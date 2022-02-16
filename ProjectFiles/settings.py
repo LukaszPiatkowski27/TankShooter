@@ -23,6 +23,3 @@ class Settings:
 
     def reset_config_to_default(self):
         self.config['ACTIVE'] = self.config['DEFAULT']
-
-
-

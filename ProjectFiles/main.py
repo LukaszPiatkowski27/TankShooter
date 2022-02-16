@@ -8,9 +8,10 @@ from main_menu import MainMenu
 class Game:
 
     def __init__(self):
+        pygame.init()
         self.EXIT_EVENT = pygame.USEREVENT
         self.settings = Settings()
-        pygame.init()
+
         self.title_font = pygame.font.Font(None, 64)
         self.width = self.settings.WIDTH
         self.height = self.settings.HEIGHT
@@ -30,10 +31,13 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or event.type == self.EXIT_EVENT:
                     self.running = False
+
                 if event.type == pygame.MOUSEBUTTONUP:
                     for i in range(len(self.active_scene.buttons)):
                         if self.active_scene.buttons[i].hover():
                             self.active_scene.buttons[i].on_click()
+                            break
+
             self.active_scene.draw()
             pygame.display.update()
             self.clock.tick(self.settings.FPS)

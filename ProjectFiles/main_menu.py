@@ -1,6 +1,7 @@
 import pygame.event
 from button import Button
 from scene import Scene
+from game_scene import GameScene
 
 
 class MainMenu(Scene):
@@ -48,6 +49,7 @@ class MainMenu(Scene):
 
     def goto_single(self):
         print("SINGLE PLAYER")
+        self.game.active_scene = GameScene(self.game)
         # TODO: go to GAME SCENE (SINGLE PLAYER)
 
     def goto_lan(self):
